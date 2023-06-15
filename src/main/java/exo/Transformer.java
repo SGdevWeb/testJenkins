@@ -22,15 +22,15 @@ public class Transformer {
 
     public String transform(String text){
         String newText = text;
-        String str;
 
-        for (String token : tokens.keySet()) {
-            newText = text.replace("["+ token + "]", tokens.get(token));
+        for (Map.Entry<String, String> token : tokens.entrySet()) {
+            newText = text.replace("["+ token.getKey() + "]", token.getValue());
         }
 
-//        tokens.forEach((token, value) -> {
-//            text.replaceAll("["+ token + "]", value);
-//        });
+/**
+ * tokens.forEach((token, value) -> {
+ * text.replaceAll("["+ token + "]", value);});
+ */
 
         return newText;
     }
